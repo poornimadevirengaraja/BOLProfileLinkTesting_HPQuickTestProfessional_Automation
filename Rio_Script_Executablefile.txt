@@ -1,0 +1,138 @@
+exeval = Func_Readtxt("D:\Project_RioExpansion\Testdata\Exestatus.txt")
+msgbox exeval 
+Do Until exeval = "0"
+
+        wscript.sleep 1000  
+	
+	scriptpath=Script()
+	Dim qtApp
+	Set qtApp = CreateObject("QuickTest.Application")
+	set owc=createobject("wscript.shell")
+	owc.popup " Execution is going to start!",2
+	qtApp.Launch
+	qtApp.Visible = False
+	'qtApp.Options.Run.RunMode = "Fast"
+	qtApp.Options.Run.ViewResults = False
+	qtApp.Open scriptpath, True 
+	qtApp.Test.Run
+	qtApp.Quit
+	Set qtApp = Nothing
+	owc.popup "Script Execution successfully finished",2
+     wscript.sleep 500  
+	exeval = Func_Readtxt("D:\Project_RioExpansion\Testdata\Exestatus.txt")
+
+        wscript.sleep 2000  
+
+	
+Loop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public function Script()
+
+Script = "D:\Project_RioExpansion\Script\RioIII_final"
+
+end function
+
+
+	Public Function Func_Readtxt(Byval txtpath)
+
+	On Error Resume Next
+	Func_Readtxt = ""
+	Set fso = createobject("Scripting.FileSystemObject")
+    Const ForReading = 1
+	Set f = fso.OpenTextFile(txtpath, ForReading)
+	Func_Readtxt= f.ReadLine    
+    Set f = Nothing
+   Set fso = Nothing
+   On Error GoTo 0
+   
+  End Function
